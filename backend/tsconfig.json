@@ -1,0 +1,30 @@
+{
+  "include": ["src/**/*", "tests/**/*", "src/domain/entities/*.d.ts"],
+  "compilerOptions": {
+    "target": "es2021",
+    "allowJs": true,
+    "noImplicitAny": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "sourceMap": true,
+    "strictNullChecks": true,
+    "strictFunctionTypes": true,
+    "noImplicitThis": true,
+    "alwaysStrict": true,
+    "rootDir": "./src/",
+    "baseUrl": "./src/",
+    "module": "commonjs",
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true,
+    "outDir": "./dist",
+    "typeRoots": [
+      "./node_modules/@types", 
+      "./src/domain/entities"
+    ],
+    "moduleResolution": "node",
+    "paths": {
+      "@/*": ["./*"]
+    }
+  }
+}
