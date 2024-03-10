@@ -12,9 +12,9 @@ ddown:
 
 ## prod
 prelease:
-	docker-compose -f docker-compose.prod.yml up -d --prod
+	docker-compose -f docker-compose.prod.yml up -d --build
 
-hdown:
+pdown:
 	docker-compose -f docker-compose.prod.yml down
 	docker system prune -a -f
 	docker volume prune -a -f

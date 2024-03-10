@@ -15,6 +15,13 @@ Este é um projeto de Sistema de Gerenciamento de Clientes com foco na arquitetu
 - Frontend em React.
 - Docker.
 
+## Iniciar Aplicação
+``
+$ docker-compose -f docker-compose.build.yml up -d --build
+``
+- Backend em Node.js com arquitetura hexagonal.
+
+
 ## Licença
 
 Este projeto está licenciado sob a [MIT License](LICENSE).

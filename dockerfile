@@ -8,18 +8,25 @@ RUN yarn
 
 COPY ./frontend .
 
-RUN yarn build:prod
+RUN yarn build
 
-FROM node:21.7 AS build
+FROM node:21.7 AS backend
 
 WORKDIR /usr/src/app
 
-COPY package*.json .
+COPY backend/package.json backend/webpack.config.js ./
 
-RUN yarn update
+RUN yarn
 
-COPY . .
+COPY ./backend .
 
-FROM node:21.7 AS finally
+RUN yarn build
+
+FROM node:21.7-alpine AS finally
+
+WORKDIR /usr/src/customer_management
 
 COPY --from=interface /usr/src/app/build ./public/
+COPY --from=backend /usr/src/app/dist .
+
+CMD ["node", "dist/index.js"]

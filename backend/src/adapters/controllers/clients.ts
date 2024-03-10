@@ -1,5 +1,6 @@
 import { Request, Response } from "express";
-import ClientRepository from "domain/repositories/client";
+import ClientRepository from "@/domain/repositories/client";
+import { solve, Point } from "@/utils/solve_tsp"
 
 class ClientController {
 
@@ -22,6 +23,18 @@ class ClientController {
         let results = await rep.SelectAll();
 
         res.json(results)
+    }
+
+    public async SolveDistance(_: Request, res: Response) {
+        const rep = new ClientRepository();
+        let results = await rep.SelectAll();
+
+        const points: Point[] = results.map(v => new Point(v.coordinate.x, v.coordinate.y));
+        const optimal_path = solve(points);
+
+        const reordered_coordinates = optimal_path.map(i => results[i]);
+        
+        res.json(reordered_coordinates.map(v => v.coordinate));
     }
     
 }

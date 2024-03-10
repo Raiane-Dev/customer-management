@@ -12,9 +12,6 @@ app.use(express.static(path.join(__dirname, "public")));
 
 app.post("/new-client", ClientController.Create)
 app.get("/clients", ClientController.ListAll)
-
-app.get("/", (req: Request, res: Response) => {
-    res.send("hello")
-});
+app.get("/solve-tsp", ClientController.SolveDistance)
 
 export default app;

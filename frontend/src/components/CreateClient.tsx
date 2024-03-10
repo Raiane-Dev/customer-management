@@ -1,6 +1,6 @@
 import ClientInput from '../models/client.entity';
 import apiService from "../services/apiService"
-import { Button, Form, Input, InputNumber, Row, notification } from 'antd';
+import { Button, Form, Input, Row, notification } from 'antd';
 import { SmileOutlined, MehOutlined } from '@ant-design/icons';
 
 
@@ -14,14 +14,14 @@ const FormClient = () => {
         ).then((response: any) => {
             console.log(response);
             notification.open({
-                message: response.data,
+                message: response.statusText,
                 icon: <SmileOutlined style={{ color: '#108ee9' }} />,
             });
 
         })
             .catch(err => {
                 notification.open({
-                    message: err.response?.data ?? "Unable to create",
+                    message: err.response?.statusText ?? "Unable to create",
                     icon: <MehOutlined />,
                 });
             })
