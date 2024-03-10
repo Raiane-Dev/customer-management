@@ -1,26 +1,34 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { ConfigProvider, Layout } from 'antd';
+import CreateClient from './components/CreateClient';
+import { Routes, Route } from 'react-router-dom';
+import './App.less'
+import Home from './components/Home';
+import ListClients from './components/ListClients';
+import Header from './components/Header';
+import Footer from './components/Footer';
+import MapClients from './components/MapClients';
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <ConfigProvider>
+                <Layout className='layout-pattern'>
+                  <Header />
+                    <Layout>
+                        <Layout.Content className='content-pattern'>
+                      <Routes>
+                        <Route path="/" element={<Home />} />
+                        <Route path="/table" element={<ListClients />} />
+                        <Route path="/create" element={<CreateClient />} />
+                        <Route path="/map-clients" element={<MapClients />} />
+                      </Routes>
+                    </Layout.Content>
+                    <Footer />
+                  </Layout>
+                </Layout>
+      </ConfigProvider>
+    </>
   );
-}
+};
 
 export default App;

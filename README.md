@@ -7,8 +7,6 @@ Este é um projeto de Sistema de Gerenciamento de Clientes com foco na arquitetu
 - Listar os clientes cadastrados e filtrar com base nas informações como nome, email e telefone.
 - Cadastrar novos clientes com nome, email, telefone, coordenada X e coordenada Y.
 - Calcular a rota mais eficiente para visitação dos clientes cadastrados, partindo da empresa e retornando no final, utilizando o algoritmo TSP.
-- Disponibilizar um algoritmo via rota da API para calcular essa rota.
-- Implementar um botão na tela de clientes que, ao ser clicado, mostra a ordem de visitação dos clientes na rota calculada.
 
 ## Tecnologias Utilizadas
 
