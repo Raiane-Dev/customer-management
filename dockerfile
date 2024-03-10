@@ -29,4 +29,4 @@ WORKDIR /usr/src/customer_management
 COPY --from=interface /usr/src/app/build ./public/
 COPY --from=backend /usr/src/app/dist .
 
-CMD ["node", "dist/index.js"]
+CMD ["node", "dist/main.js"]
