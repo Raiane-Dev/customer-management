@@ -13,6 +13,9 @@ module.exports = {
       },
     ],
   },
+  entry: {
+    "app": path.resolve(__dirname, 'src/infrastructure/server/server.ts')
+},
   resolve: {
     extensions: ['.ts', '.js'],
     alias: {

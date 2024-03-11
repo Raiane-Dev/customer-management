@@ -90,12 +90,6 @@ const FormClient = () => {
                         name="coordinate"
                         label="Coordinate"
                         className='input-pattern w100'
-                        rules={[
-                            {
-                                required: true,
-                                message: 'Please enter a coordinates!',
-                            },
-                        ]}
                     >
                         <Input
                             defaultValue={"(0, 0)"}

@@ -1,8 +1,8 @@
 all:
-	make prelease
+	make release
 
 ## dev
-drelease:
+dev:
 	docker-compose -f docker-compose.dev.yml up -d --build
 
 ddown:
@@ -11,10 +11,10 @@ ddown:
 	docker volume prune -a -f
 
 ## prod
-prelease:
+release:
 	docker-compose -f docker-compose.prod.yml up -d --build
 
-pdown:
+clean:
 	docker-compose -f docker-compose.prod.yml down
 	docker system prune -a -f
 	docker volume prune -a -f

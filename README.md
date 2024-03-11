@@ -19,8 +19,13 @@ Este é um projeto de Sistema de Gerenciamento de Clientes com foco na arquitetu
 ``
 $ docker-compose -f docker-compose.build.yml up -d --build
 ``
-- Backend em Node.js com arquitetura hexagonal.
 
+Endereço da url para consultar as rotas:
+Método GET
+http://localhost:3001/api/v1/solve-tsp
+
+## Resultado
+![Result](./result.png)
 
 ## Licença
 

@@ -1,6 +1,6 @@
-FROM node:21.7 AS interface
+FROM node:21.7 AS builder
 
-WORKDIR /usr/src/app
+WORKDIR /usr/src/front
 
 COPY frontend/package.json frontend/yarn.lock ./
 
@@ -10,9 +10,7 @@ COPY ./frontend .
 
 RUN yarn build
 
-FROM node:21.7 AS backend
-
-WORKDIR /usr/src/app
+WORKDIR /usr/src/back
 
 COPY backend/package.json backend/webpack.config.js ./
 
@@ -24,9 +22,7 @@ RUN yarn build
 
 FROM node:21.7-alpine AS finally
 
-WORKDIR /usr/src/customer_management
+COPY --from=builder /usr/src/front/build ./public/
+COPY --from=builder /usr/src/back/dist/* .
 
-COPY --from=interface /usr/src/app/build ./public/
-COPY --from=backend /usr/src/app/dist .
-
-CMD ["node", "dist/main.js"]
+CMD ["node", "bundle.js"]

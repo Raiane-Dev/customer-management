@@ -33,7 +33,7 @@ const items: MenuItem[] = [
     <AlertOutlined />
   ),
   getItem(
-    <Link to="/table">Clients</Link>,
+    <Link to="/table">List Clients</Link>,
     'list_clients',
     <InboxOutlined />
   ),
@@ -58,7 +58,7 @@ const Header = () => {
         <Menu
           theme="light"
           mode="inline"
-          defaultSelectedKeys={['list_clients']}
+          defaultSelectedKeys={['home']}
           items={items}
         />
       </Layout.Sider>
